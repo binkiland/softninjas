@@ -1,0 +1,202 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+
+	<meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=yes">
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+
+    <link rel="icon" type="image/x-icon" href="../favicon.ico">
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous"></script>
+
+    <script src="./js/ajaxUtility.js"></script>
+    <script src="./../js/settings.js"></script>
+    <script src="./js/autosuggest.js"></script>
+    <script src="./js/nt.js"></script>
+
+    <style type="text/css">
+
+        #container 
+        {
+            width: 100%;
+            min-height: 100%;
+            _height: 100%;
+            position: relative;
+        }
+        
+        #search {
+            width: 503px;
+            margin: 20px auto;
+            height: 36px;
+            margin-bottom: -21px !important;
+        }
+        
+        #search input.q {
+            height: 100%;
+            line-height: 37px;
+            width: 402px;
+            overflow: hidden;
+            padding: 2px 5px 2px 52px;
+            color: #333;
+            float: left;
+            text-align: left;
+            background: #FFF;
+            font-size: 14px;
+            border: 1px solid #d9d9d9;
+            border-top: 1px solid #c0c0c0;
+            font-family: Roboto, "Segoe UI", Tahoma, sans-serif;
+            font-size: 15px;
+            font-stretch: 100%;
+            font-style: normal;
+            font-variant-caps: normal;
+            font-variant-east-asian: normal;
+            font-variant-ligatures: normal;
+            font-variant-numeric: normal;
+            font-weight: 500;
+            background-image: url('./img/search.png');
+            background-repeat: no-repeat;
+            background-size: 15px 15px;
+            background-position: 3% 55%;
+        }
+        
+        #search input.q:hover {
+            border-color: #b9b9b9;
+            border-top-color: #a0a0a0;
+            box-shadow: inset 0 1px 1px 0 rgba(0, 0, 0, 0.1);
+        }
+
+        #search input.q:focus
+        {
+          outline: none !important;
+          border-color: #FF3D57;
+          box-shadow: 0 0 10px #FF3D57;
+        }
+
+        input[type="text"]:focus + input[type="submit"]{
+          outline: none !important;
+          border-color: #FF3D57;
+          box-shadow: 0 0 10px #FF3D57;
+        }
+        
+        #search .search-blue input.q {
+            border: #4d90fe solid 1px;
+            box-shadow: inset 0 1px 1px 0 rgba(0, 0, 0, 0.2);
+        }
+        
+        #search .btn {
+            float: right;
+            display: inline;
+            background-color: #4d90fe;
+            background-image: -webkit-gradient(linear, left top, left bottom, from(#4d8ffd), to(#4787ed));
+            background-image: -webkit-linear-gradient(top, #4d8ffd, #4787ed);
+            background-image: -moz-linear-gradient(top, #4d8ffd, #4787ed);
+            background-image: -ms-linear-gradient(top, #4d8ffd, #4787ed);
+            background-image: -o-linear-gradient(top, #4d8ffd, #4787ed);
+            background-image: linear-gradient(top, #4d8ffd, #4787ed);
+            filter: progid: DXImageTransform.Microsoft.gradient(startColorStr='#4d8ffd', EndColorStr='#4787ed');
+            border: #1577d2 solid 1px;
+            vertical-align: top;
+            color: white;
+            font-size: 16px;
+            border-radius: 2px;
+            height: 33px;
+            text-align: center;
+            width: 90px;
+			      cursor:pointer;
+        }
+        .s-box {
+            width: 400px;
+            height: 124px;
+			background: url('./img/tenlogo.png') no-repeat center center;
+            margin: 90px auto 0;
+        }
+        #searchBox {
+          border: none; /* Add a grey border */
+          border-radius: 20px;
+          border-bottom-right-radius: 0px;
+          border-top-right-radius: 0px;
+      }
+      #searchButton
+      {
+        background-color:#FF3D57;
+        border:none;
+        border-top-right-radius: 20px;
+        border-bottom-right-radius: 20px;
+        height:100%;
+        color:white;
+        font-family: Roboto, "Segoe UI", Tahoma, sans-serif;
+        font-size: 15px;
+        font-stretch: 100%;
+        font-style: normal;
+        font-variant-caps: normal;
+        font-variant-east-asian: normal;
+        font-variant-ligatures: normal;
+        font-variant-numeric: normal;
+        font-weight: 500;
+        width:42px;
+        background-image:url('./img/darrow.png');
+        background-repeat:no-repeat;
+        background-size:15px 15px;
+        background-position: 42% 50%;
+      }
+
+      /**
+      *
+      * Auto-Suggest
+      *
+      */
+
+        #searchResults
+        {
+          width: 380px;
+          margin: 20px 23vw;
+          height: 36px;
+          display:none;          
+        }
+
+        #autoSuggestList
+        {
+          margin: 20px -2px;
+
+          border: 1px solid !important;
+          border-color: #8d858698 !important;
+          border-radius: 20px;
+          border-top-right-radius: 0px;
+          border-top-left-radius: 0px;
+          padding-bottom: 15px;
+          padding-left: 0px;
+          padding-right: 0px;
+        }
+
+        .searchHistoryItem
+        {
+          color:purple;
+        }
+
+    </style>
+
+    <title> New Tab </title>
+</head>
+<body>
+  <div class="container">
+    <div class="row s-box">
+    </div>
+    <div class="row" id="search">
+      <form action="" id="searchForm" search-type="web">
+        <input id='searchBox' name="q" type="text" class="q" autocomplete="off" autofocus="autofocus" placeholder="Search the Web or Type a URL"  />
+        <input type="submit"id="searchButton" value=""/>
+      </form>
+    </div>
+    <div id="searchResults" class="row">
+      <ul id="autoSuggestList" class="dropdown-menu-right col bg-white show">
+      </ul>
+    </div>
+  </div>
+</body>
+

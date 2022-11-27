@@ -1,0 +1,300 @@
+/**
+*
+* General
+*
+*/
+
+html, body {
+  height: 100%;
+}
+
+i[class*=fa-]::before{
+   background:transparent;
+}
+
+body::-webkit-scrollbar {
+  display: none;
+}
+
+a, button, .btn, .list-group-item:hover {
+  cursor: default;
+}
+
+.fillheight
+{
+  height:100vh !important;
+}
+
+#urlbar {
+  height: 25px;
+  text-align: left;
+}
+
+.form-control {
+  font-size: .85rem;
+}
+
+.transparentbg
+{
+  background:none !important;
+}
+
+.betterdivider {
+  height: 1px;
+  width:100%;
+  display:block; /* for use on default inline elements like span */
+  margin: 9px 0;
+  overflow: hidden;
+  background-color: #e5e5e5;
+}
+
+.marginlefthard-3
+{
+  margin-left:3px !important;
+}
+
+/**
+*
+* Navbar
+*
+*/
+
+#adblock,#mineblock
+{
+  height:20px;
+  width:20px;
+  cursor:pointer;
+}
+
+#bookmarkIndicator
+{
+  cursor:pointer;
+}
+
+#viewControls
+{
+  margin-left:-17px;
+}
+
+.navbar {
+
+  opacity: .975;
+  -webkit-app-region: drag;
+  background-color: #DDDDDD;
+
+  .btn {
+
+    height: 24px;
+    padding: 0;
+    font-size: .85rem;
+  }
+}
+
+.no-border:focus {
+  border-color:#ccc;
+  outline: 0;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+}
+
+/**
+*
+* Sidebar
+*
+*/
+#sidebar {
+  -webkit-app-region: drag;
+  transition: .3s ease all;
+  height: 95%;
+  position: fixed;
+  top: 2.5em;
+  border: 5px solid;
+  background-color: #373a3c;
+  width: 20em;
+  z-index:90;
+}
+
+.show-sidebar {
+  opacity: .975;
+  left: 0;
+}
+
+.hide-sidebar {
+  opacity: 0;
+  left: -20em;
+}
+
+#resizebar {
+  position: fixed;
+  width: 3px;
+  height: 96%;
+  background-color: #969696;
+  top: 2.5em;
+  left: 20em;
+
+  &:hover {
+    cursor: ew-resize;
+  }
+}
+
+.sidebtn
+{
+  cursor:pointer;
+  margin-left:1px;
+  margin-bottom:1px;
+  font-size:24px;
+}
+
+.sidebtn i
+{
+  -webkit-transition: all 0.5s ease;
+}
+
+.sidebtn i.active
+{
+ color:#318EEE !important; 
+}
+
+.sidebtn i:hover
+{
+  color:#318EEE !important;
+}
+
+/**
+*
+* Tabs
+*
+*/
+  #tabList
+  {
+
+    background-color: #191D1E;
+    border-color: #191D1E;
+    margin-top: 8px;
+    height: 100%;
+    overflow-y: auto;
+    max-width:35px;
+  }
+
+  .sidebar-item {
+
+    color: #fff;
+    background-color: #333;
+    font-size: .85rem;
+    word-break: keep-all;
+    cursor:pointer !important;
+  }
+
+  #tabs
+  {
+    width:40px;
+    max-width:40px;
+    background-color: #191D1E;
+    margin-left:0;
+    margin-top:0;
+    height:100%;
+    /*position:absolute;
+    z-index:9998;*/
+    padding-bottom: 100%;
+    margin-bottom: -100%;
+  }
+
+  .favitab
+  {
+    height:16px;
+    width:16px;
+    margin-left:2px;
+    -webkit-filter: grayscale(80%);
+    opacity:0.8;
+  }
+
+  .favitab.active
+  {
+    -webkit-filter: grayscale(0%);
+    opacity:1;
+  }
+
+/*#tabs {
+
+  background-color: #333;
+  border-color: #333;
+  margin-top: 8px;
+  height: 100%;
+  overflow-y: auto;
+
+  .list-group-item {
+    border: none;
+    padding: 0.125rem 1.25rem;
+  }
+
+    &.active {
+      background-color: #666;
+    }
+
+  a.list-group-item {
+
+    color: #ddd;
+    background-color: #555;
+    font-size: .85rem;
+    word-break: keep-all;
+
+    &.active {
+      background-color: #666;
+    }
+
+    &:hover {
+      background-color: #373a3c;
+      border-right: 25px outset rgb(255, 88, 88);
+      border-left: 10px inset;
+      padding-left: 10px;
+    }
+
+    &.active:hover {
+      color: #5bc0de;
+    }
+  }
+
+}*/
+
+/**
+*
+* Webviews
+*
+*/
+
+#views, .view.active {
+  display: block !important;
+  width: 100% !important;
+  height: 100% !important;
+}
+
+#views {
+  margin-top: 0;
+  padding-right:0 !important;
+  /*position:absolute;*/
+}
+
+.view {
+  flex: 0 1;
+  width: 0px;
+  height: 0px;
+  display:none;
+}
+
+/**
+*
+* Auto-Suggest
+*
+*/
+
+#searchResults
+{
+  display:none;
+  position:absolute;
+  z-index:9999;
+}
+
+.searchHistoryItem
+{
+  color:purple;
+}

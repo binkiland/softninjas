@@ -1,0 +1,97 @@
+
+body
+{
+    background: #f1f1f1;
+    font-family: Roboto, 'Segoe UI', Tahoma, sans-serif;
+    font-size: 81.25%;
+    color: var(--primary-text-color);
+    display: block;
+    height: 100%;
+    line-height: 1.54;
+    overflow: scroll;
+}
+
+#history-wrapper
+{
+    margin:  0 auto;
+    max-width: 960px;
+    min-width: 550px;
+    padding: 0 24px;
+    width: calc(100% - 2 * 24px);
+    margin-top: 24px;  
+}
+
+.day-container
+{
+    /*position: relative;*/
+    box-shadow: 0px 2px 7px 0px #797976;
+    background: #FFF;
+    margin: 20px;
+}
+
+
+#item-container {
+    -webkit-padding-start: 10px;
+    align-items: center;
+    display: flex;
+    min-height: 44px;
+    pointer-events: auto;
+    background: #FFF;
+}
+
+
+#time-accessed {
+    -webkit-margin-start: 6px;
+    color: #646464;
+    min-width: 69px;
+}
+
+.website-icon {
+    background-repeat: no-repeat;
+    background-size: 16px;
+    height: 16px;
+    width: 16px;
+    background-image: url("icon.png");
+    margin: 5px;
+}
+
+#title-and-domain {
+    align-items: center;
+    display: flex;
+    flex: 1;
+    height: 44px;
+    overflow: hidden;
+}
+
+.website-title {
+    -webkit-margin-start: 16px;
+    color: #212121;
+    overflow: hidden;
+    text-decoration: none;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+#domain {
+    -webkit-margin-start: 16px;
+    color: #757575;
+    flex-shrink: 0;
+    margin-right: 19px;
+}
+
+
+.card-title {
+    align-items: center;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.14);
+    border-radius: 2px 2px 0 0;
+    display: flex;
+    font-size: 108%;
+    font-weight: 500;
+    height: 48px;
+    line-height: 48px;
+    overflow: hidden;
+    padding: 0 20px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    /*background: #FFF;*/
+}

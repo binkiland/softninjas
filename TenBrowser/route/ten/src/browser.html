@@ -1,0 +1,104 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+	<meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=yes">
+
+    <title> TenBrowser </title>
+
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/css/bootstrap.min.css" integrity="sha384-Zug+QiDoJOrZ5t4lssLdxGhVrurbmBWopoEl+M6BdEfwnCJZtKxi1KgxUyJq13dy" crossorigin="anonymous">
+	<link rel="stylesheet" href="./css/font-awesome/css/font-awesome.min.css">
+	<link rel="stylesheet" href="./css/browser.css">
+
+    <link rel="icon" type="image/x-icon" href="./favicon.ico">
+
+	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/js/bootstrap.min.js" integrity="sha384-a5N7Y/aK3qNeh15eJKGWxsqtnX/wWdSZSKp+81YjTmS15nvnvxKHuzaWwXHDli+4" crossorigin="anonymous"></script>
+
+	<script src="./js/ajaxUtility.js"></script>
+    <script src="./js/settings.js"></script>
+
+    <script src="./js/enc.js"></script>
+
+    <script src="./js/start.js"></script>
+    <script src="./js/contextMenu.js"></script>
+    <script src="./js/hotkeys.js"></script>
+    <script src="./js/reporting.js"></script>
+    <script src="./js/mineblocker.js"></script>
+    <script src="./js/adblocker.js"></script>
+</head>
+<body>
+    <!-- This is a shell for browser operation -->
+    <div class="container-fluid">
+        <nav class="navbar navbar-light navbar-fixed-top row">
+            <div id="viewControls" class="col-0.5 btn-group" role="group">
+                <button id="goBack" class="btn no-border" title="Back (Alt+Left Arrow)">
+                    <i class="fa fa-chevron-circle-left">
+                    </i>
+                </button>
+                <button id="go" class="btn no-border" title="Forward (Alt+Right Arrow)">
+                    <i class="fa fa-chevron-circle-right">
+                    </i>
+                </button>
+                <button id="refresh" class="btn no-border" title="Refresh (F5)">
+                    <i class="fa fa-refresh">
+                    </i>
+                </button>
+            </div>
+            <form id="go-form" class="col bg-white rounded">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-0.5">
+                            <i id="httpLock" class="fa fa-lock align-middle">
+                            </i>
+                            <span class="vSeparator ml-2">
+                            	|
+                            </span>
+                        </div>
+                        <input id="urlbar" class="form-control no-border col border-0" autocomplete="off" />
+                        <div class="col-0.5">
+                            <i id="bookmarkIndicator" class="fa fa-star-o align-middle mt-1">
+                            </i>
+                        </div>
+                    </div>
+                </div>
+            </form>
+            <div class="ml-2 col-0.5 btn-group" role="group">
+                <img id="adblock" src="./img/adblocker.png" class="mr-1 mt-1 align-middle" data-toggle="popover" title="AdBlocker" data-content="AdBlocker is Currently Active"/>
+                <img id="mineblock" src="./img/minerblocker.png" class="ml-1 mt-1 align-middle" data-toggle="popover" title="MinerBlocker" data-content="MinerBlocker is Currently Active"/>
+            </div>
+        </nav>
+    </div>
+    <div id="searchResults" class="container-fluid">
+    	<div class="row">
+    		<div class="col-1"></div>
+		    <ul id="autoSuggestList" class="dropdown-menu-right col bg-white show">
+			</ul>
+    	</div>
+	</div>
+	<div class="container-fluid">
+		<div class="row fillheight">
+			<div id="tabs" class="col fillheight">
+				<div class="row">
+					<ul  id="tabList" class="nav">
+						<li class="ml-2 mb-1 sidebtn"><i id="homepage" class="fa fa-home transparentbg text-white align-middle" title="Home"></i></li>
+						<li class="betterdivider"></li>
+						<li class="ml-2 mb-1 sidebtn" name="whatsapp" goto="https://web.whatsapp.com"><i class="fa fa-whatsapp transparentbg text-white align-middle pinnedApp" title="Whatsapp"></i></li>
+						<li class="ml-2 mb-1 sidebtn" name="instagram" goto="https://www.instagram.com"><i class="fa fa-instagram transparentbg text-white align-middle pinnedApp" title="Instagram"></i></li>
+						<li class="ml-2 mb-1 sidebtn" name="spotify" goto="https://www.youtube.com"><i class="fa fa-youtube transparentbg text-white align-middle pinnedApp" title="YouTube"></i></li>
+						<li class="betterdivider"></li>
+                        <li class="ml-2 mb-1 sidebtn"><i id="bookmarks" class="fa fa-star transparentbg text-white align-middle" title="Bookmarks"></i></li>
+                        <li class="ml-2 mb-1 sidebtn"><i id="history" class="fa fa-history transparentbg text-white align-middle" title="History"></i></li>
+                        <li class="betterdivider"></li>
+                        <li class="ml-2 mb-1 sidebtn"><i id="createNewTab" class="fa fa-plus transparentbg text-white align-middle" title="New Tab"></i></li>
+					</ul>
+				</div>
+			</div>
+		    <div id="views" class="col pl-0 fillheight">
+    		</div>
+		</div>
+	</div>
+</body>
+</html>
